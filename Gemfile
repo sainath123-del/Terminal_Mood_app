@@ -11,3 +11,5 @@ gem 'database', '~> 0.0.0'
 gem 'animation', '~> 0.1.alpha.3'
 
 gem "rspec", "~> 3.10"
+
+gem "digest", "~> 3.0"

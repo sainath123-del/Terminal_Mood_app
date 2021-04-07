@@ -20,7 +20,7 @@ Choose: Good
 Thank you for using this app
 
 ## Extras 
-Database
+ Database
  CSV
  PRY
  Digest

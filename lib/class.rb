@@ -1,11 +1,3 @@
-class journel 
-    def Menu
-        Display_welcome
-    end
+class Journel
 
-    def Display_welcome
-        puts '-' * 15
-        puts 'WELCOME TO YOUR MOOD'
-        puts '-' * 15
-    end
-end
+end 

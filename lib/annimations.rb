@@ -1,4 +1,4 @@
-module Animation
+module Annimation
     def self.welcome_screen()
       puts `clear`
       puts
@@ -25,7 +25,7 @@ module Animation
     end
   
     def self.welcome_function()
-      message = "Welcome to mood.IO by Adam Ladell and David Bui"
+      message = "Welcome to mood.IO"
   
       words = message.split(' ')
   
@@ -39,14 +39,7 @@ module Animation
               :red
             when "mood.IO"
               :light_cyan
-            when "Adam"
-              :light_magenta
-            when "Ladell"
-              :light_magenta
-            when "David"
-              :blue
-            when "Bui"
-              :blue
+            
             else
               :default
             end
@@ -120,33 +113,7 @@ module Animation
       sleep 0.2
       puts ("|_| |_| |_|\\___/ \\___/ \\__,_(_)_____\\____/ ".colorize(:light_cyan))
       puts
-      puts
-      sleep 0.2
-      puts(" _")
-      sleep 0.2
-      puts("|_)")
-      sleep 0.2
-      puts("|_)\\/")
-      sleep 0.2
-      puts("   /")
-      sleep 0.2
-      puts()
-      sleep 0.2
-      puts()
-      sleep 0.2
-      puts(" /\\ _| _.._ _  |  _. _| _ ||".colorize(:light_magenta))
-      sleep 0.2
-      puts("/--\(_|(_|| | | |_(_|(_|(/_||".colorize(:light_magenta))
-      sleep 0.2
-      puts
-      sleep 0.2
-      puts(" _            _".colorize(:light_green))
-      sleep 0.2
-      puts("| \\ _.  o _| |_)   o".colorize(:light_green))
-      sleep 0.2
-      puts("|_/(_|\\/|(_| |_)|_||".colorize(:light_green))
-      sleep 0.5
-      puts
+      
       exit
     end
   end
