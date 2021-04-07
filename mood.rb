@@ -43,7 +43,7 @@ class Journal
     while true
       puts `clear`
       puts
-      puts ("mood.IO".center(150))
+      puts ("mood".center(150))
       puts("Type EXIT to return to previous menu")
       puts
       print ("Username: ".colorize(:light_cyan))
@@ -55,9 +55,8 @@ class Journal
       puts
 
 
-      # Check if user account exists 
       if File.exists?("database/journals/#{username}.csv")
-        correct_password = File.read("database/passwords/#{username}.txt")
+        correct_password = File.read("database/password/#{username}.txt")
         if Digest::SHA2.hexdigest(password) == correct_password
           @current_account = username
           puts("Welcome,".colorize(:red) + " #{username}!".colorize(:light_cyan))
@@ -89,20 +88,17 @@ class Journal
       password_again = gets.strip
       puts
 
-      # Check if the passwords match
       if password == password_again
-        # Check if a user with chosen username exists
         if File.exists?("database/journals/#{username}.csv")
           puts("Username is taken!".colorize(:red))
           sleep 1.2
         else
 
-          # Create user files
 
           File.new("database/journals/#{username}.csv"   , "w")
-          File.new("database/passwords/#{username}.txt"  , "w")
+          File.new("database/password/#{username}.txt"  , "w")
           File.new("database/moods/#{username}.txt"      , "w")
-          File.open("database/passwords/#{username}.txt" , "w") do |file|
+          File.open("database/password/#{username}.txt" , "w") do |file|
             file.print(Digest::SHA2.hexdigest(password))
           end
 
@@ -141,29 +137,22 @@ class Journal
       case input
       when "1"
         if @mood_list.length > 0
-          # Open interface to allow user to input journal entry and save entry to a var 'journal'
           journal = get_journal_entry(@mood_list)
-          # Add the journal var to the journal_entries_array that was definied in 'initialize'
           add_journal_entry_to_arr(journal)
-          # Write the entire journal_entries_arr to disk
           save_journal_entries_arr_to_disk()
         else
           puts("There are no moods! Please add some custom moods...".colorize(:red))
           sleep 2
         end
       when "2"
-        # If there are no journal entries, display an error
         if @journal_entries_arr.length > 0
-          # Present user with a menu to view all titles of entries. User can then select an entry to view
           input = display_list_of_entries(@journal_entries_arr)
-          # Display content of selected entry
           show_content_of_entry(input, @journal_entries_arr) if input != nil
         else
           puts no_entries_error
           sleep 1
         end
       when "3"
-        # Display journal entry titles to user and allow them to delete a specific entry
         if @journal_entries_arr.length > 0
           remove_journal_entry()
         else
@@ -171,10 +160,8 @@ class Journal
           sleep 1
         end
       when "4"
-        # Allow user to create / delete moods
         custom_mood()
       when "5"
-        # Allow user to see the most used moods
         if @journal_entries_arr.length > 0
           get_most_used_moods() 
           puts("Press enter to return...".colorize(:light_cyan))
@@ -217,8 +204,6 @@ class Journal
 
     lines = []
 
-    # Let user enter a multiline journal entry and store each line to an array 'lines'
-    # If user enters the word EXIT on a new line, the while loop is exited
     while input != "EXIT"
       input = gets.strip
       lines << input
@@ -226,14 +211,11 @@ class Journal
 
     puts
 
-    # Dispaly list of moods for the user to choose from for the entry
     view_mood_list(mood_list)
     puts
 
-    # Remove the 'EXIT' line from the array
     lines.pop
 
-    # For each line, remove any commas found
     lines.each { |line|
       line.tr!(',', '')
     }
@@ -243,7 +225,6 @@ class Journal
       print("Choose a mood for this entry".colorize(:light_cyan) + " (Enter mood number): ".colorize(:red))
       input = gets.strip()
 
-      # If the input does not include numbers, or the number is not on the list, inform user and check again
       if input.count('0-9') == input.length
         if input.to_i <= mood_list.length && input.to_i > 0
           mood = mood_list[input.to_i - 1]
@@ -256,7 +237,6 @@ class Journal
       view_mood_list(mood_list)
     end
 
-    # Get the date and time for the current entry
     
     today = Time.now
 
@@ -274,7 +254,6 @@ class Journal
 
   end
 
-  # Add the journal entry specified to the class's local journal storage
 
   def add_journal_entry_to_arr(journal_entry)
     content = journal_entry[:content].join(';')
@@ -304,7 +283,6 @@ class Journal
       user_input = gets.strip
 
 
-      # If the user's input is within the valid input list, then run a case statement to execute an option
       while !valid_inputs.include?(user_input)
         puts("Please enter a valid number!".colorize(:red))
         user_input = gets.strip
@@ -350,7 +328,6 @@ class Journal
     end
   end
 
-  # Save the local journal storage to the file associated with the account
   def save_journal_entries_arr_to_disk()
     File.open("database/journals/#{@current_account}.csv", "w") do |file|
       file.puts("title,content,mood,date")
@@ -361,7 +338,6 @@ class Journal
 
   end
 
-  # Read the journal entries for the specified user into the local journal storage
   def read_journal_entries_to_array()
     @journal_entries_arr = []
 
