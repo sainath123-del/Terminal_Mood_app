@@ -2,17 +2,17 @@ module Annimation
     def self.welcome_screen()
       puts `clear`
       puts
-      puts ("                           _   _____ ____  ".colorize(:light_cyan))
+      puts ("                           _    ".colorize(:light_cyan))
       sleep 0.2
-      puts ("                          | | |_   _/ __ \\ ".colorize(:light_cyan))
+      puts ("                          | |  ".colorize(:light_cyan))
       sleep 0.2
-      puts (" _ __ ___   ___   ___   __| |   | || |  | |".colorize(:light_cyan))
+      puts (" _ __ ___   ___   ___   __| |   ".colorize(:light_cyan))
       sleep 0.2
-      puts ("| '_ ` _ \\ / _ \\ / _ \\ / _` |   | || |  | |".colorize(:light_cyan))
+      puts ("| '_ ` _ \\ / _ \\ / _ \\ / _` |  ".colorize(:light_cyan))
       sleep 0.2
-      puts ("| | | | | | (_) | (_) | (_| |_ _| || |__| |".colorize(:light_cyan)) 
+      puts ("| | | | | | (_) | (_) | (_| |".colorize(:light_cyan)) 
       sleep 0.2
-      puts ("|_| |_| |_|\\___/ \\___/ \\__,_(_)_____\\____/ ".colorize(:light_cyan))
+      puts ("|_| |_| |_|\\___/ \\___/ \\__,_| ".colorize(:light_cyan))
       sleep 0.2
       2.times { puts } 
       sleep 0.5
@@ -25,7 +25,7 @@ module Annimation
     end
   
     def self.welcome_function()
-      message = "Welcome to mood.IO"
+      message = "Welcome to mood"
   
       words = message.split(' ')
   
@@ -101,17 +101,17 @@ module Annimation
     def self.shutdown
       puts `clear`
       puts("Thanks for using".colorize(:red))
-      puts ("                           _   _____ ____  ".colorize(:light_cyan))
+      puts ("                           _     ".colorize(:yellow))
       sleep 0.2
-      puts ("                          | | |_   _/ __ \\ ".colorize(:light_cyan))
+      puts ("                          | |    ".colorize(:light_green))
       sleep 0.2
-      puts (" _ __ ___   ___   ___   __| |   | || |  | |".colorize(:light_cyan))
+      puts (" _ __ ___   ___   ___   __| |    ".colorize(:blue))
       sleep 0.2
-      puts ("| '_ ` _ \\ / _ \\ / _ \\ / _` |   | || |  | |".colorize(:light_cyan))
+      puts ("| '_ ` _ \\ / _ \\ / _ \\ /  | | ".colorize(:light_cyan))
       sleep 0.2
-      puts ("| | | | | | (_) | (_) | (_| |_ _| || |__| |".colorize(:light_cyan)) 
+      puts ("| | | | | | (_) | (_) | (_| | ".colorize(:pink)) 
       sleep 0.2
-      puts ("|_| |_| |_|\\___/ \\___/ \\__,_(_)_____\\____/ ".colorize(:light_cyan))
+      puts ("|_| |_| |_|\\___/ \\___/ \\__|_| ".colorize(:light_cyan))
       puts
       
       exit
