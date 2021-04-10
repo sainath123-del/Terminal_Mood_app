@@ -170,14 +170,14 @@ class Journal
           puts no_entries_error
           sleep 1
         end
-      # when "6"
-      #   # Display journal entries with a certain mood
-      #   if @journal_entries_arr.length > 0 
-      #     filter_entries_by_mood()
-      #   else
-      #     puts no_entries_error
-      #     sleep 1
-      #   end
+      when "6"
+        # Display journal entries with a certain mood
+        if @journal_entries_arr.length > 0 
+          filter_entries_by_mood()
+        else
+          puts no_entries_error
+          sleep 1
+        end
       when "7"
         # Close the app
         Annimation::shutdown()
