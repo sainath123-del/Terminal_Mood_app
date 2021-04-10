@@ -2,17 +2,17 @@ module Annimation
     def self.welcome_screen()
       puts `clear`
       puts
-      puts ("                           _    ".colorize(:light_cyan))
+      puts ("                           _    ".colorize(:orange))
       sleep 0.2
-      puts ("                          | |  ".colorize(:light_cyan))
+      puts ("                          | |  ".colorize(:orange))
       sleep 0.2
-      puts (" _ __ ___   ___   ___   __| |   ".colorize(:light_cyan))
+      puts (" _ __ ___   ___   ___   __| |   ".colorize(:white))
       sleep 0.2
-      puts ("| '_ ` _ \\ / _ \\ / _ \\ / _` |  ".colorize(:light_cyan))
+      puts ("| '_ ` _ \\ / _ \\ / _ \\ / _` |  ".colorize(:white))
       sleep 0.2
-      puts ("| | | | | | (_) | (_) | (_| |".colorize(:light_cyan)) 
+      puts ("| | | | | | (_) | (_) | (_| |".colorize(:green)) 
       sleep 0.2
-      puts ("|_| |_| |_|\\___/ \\___/ \\__,_| ".colorize(:light_cyan))
+      puts ("|_| |_| |_|\\___/ \\___/ \\__,_| ".colorize(:green))
       sleep 0.2
       2.times { puts } 
       sleep 0.5
@@ -25,7 +25,7 @@ module Annimation
     end
   
     def self.welcome_function()
-      message = "Welcome to mood"
+      message = "Welcome to check your MOOD made by Sainath Biradar.!"
   
       words = message.split(' ')
   
@@ -37,14 +37,17 @@ module Annimation
             case word
             when "Welcome"
               :red
-            when "mood.IO"
-              :light_cyan
-            
+            when "MOOD"
+              :blue
+            when "Sainath"
+              :blue
+            when "Biradar.!"
+              :blue
             else
               :default
             end
           ))
-          sleep 0.01
+          sleep 0.00
         }
         print ' '
       }
@@ -52,7 +55,7 @@ module Annimation
     end
   
     def self.display_title_options()
-      options = ["Press 1 to Log In", "Press 2 to Sign Up", "Press 3 to Exit"]
+      options = ["Press 1 to Log In", "Press 2 to Register", "Press 3 to Exit"]
   
       words = []
   
@@ -75,15 +78,14 @@ module Annimation
                 when "3"
                   :light_green
                 when "Log"
-                  :light_cyan
+                  :blue
                 when "In"
-                  :light_cyan
-                when "Sign"
-                  :light_cyan
-                when "Up"
-                  :light_cyan
+                  :blue
+                when "Register"
+                  :blue
+                
                 when "Exit"
-                  :light_cyan
+                  :blue
                 else
                   :default
                 end
@@ -100,19 +102,7 @@ module Annimation
   
     def self.shutdown
       puts `clear`
-      puts("Thanks for using".colorize(:red))
-      puts ("                           _     ".colorize(:yellow))
-      sleep 0.2
-      puts ("                          | |    ".colorize(:light_green))
-      sleep 0.2
-      puts (" _ __ ___   ___   ___   __| |    ".colorize(:blue))
-      sleep 0.2
-      puts ("| '_ ` _ \\ / _ \\ / _ \\ /  | | ".colorize(:light_cyan))
-      sleep 0.2
-      puts ("| | | | | | (_) | (_) | (_| | ".colorize(:pink)) 
-      sleep 0.2
-      puts ("|_| |_| |_|\\___/ \\___/ \\__|_| ".colorize(:light_cyan))
-      puts
+      puts("Thanks for checking your mood. ".colorize(:yellow))
       
       exit
     end

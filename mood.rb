@@ -102,7 +102,7 @@ class Journal
             file.print(Digest::SHA2.hexdigest(password))
           end
 
-          puts("Account Created!".colorize(:light_cyan))
+          puts("Account Created!".colorize(:green))
           sleep 2
           @current_account = username
           main_menu
@@ -170,14 +170,14 @@ class Journal
           puts no_entries_error
           sleep 1
         end
-      when "6"
-        # Display journal entries with a certain mood
-        if @journal_entries_arr.length > 0 
-          filter_entries_by_mood()
-        else
-          puts no_entries_error
-          sleep 1
-        end
+      # when "6"
+      #   # Display journal entries with a certain mood
+      #   if @journal_entries_arr.length > 0 
+      #     filter_entries_by_mood()
+      #   else
+      #     puts no_entries_error
+      #     sleep 1
+      #   end
       when "7"
         # Close the app
         Annimation::shutdown()
@@ -291,18 +291,18 @@ class Journal
       case user_input
       when "1"
         puts `clear`
-        puts "Type your mood:".colorize(:light_cyan)
+        puts "Type your mood:".colorize(:blue)
         puts
         mood_input = gets().strip
 
         !@mood_list.include?(mood_input.capitalize) ? @mood_list << mood_input.capitalize : (puts("That mood already exists!".colorize(:red))
-                                                                                             sleep 2
+                                                                                             sleep 1
                                                                                             )
       when "2"
         puts `clear`
         view_mood_list(@mood_list)
         puts
-        puts "Type a mood that you want to delete:".colorize(:light_cyan)
+        puts "Type a mood that you want to delete:".colorize(:blue)
         puts
 
         valid_input = false
@@ -351,11 +351,11 @@ class Journal
   def display_list_of_entries(journal_entries_arr)
     puts `clear`
     journal_entries_arr.each_with_index { |journal, index|
-      puts("#{index + 1}.".colorize(:light_cyan) + " #{journal['title']}" + " " * 20 + "#{journal['date']}".colorize(:light_magenta))
+      puts("#{index + 1}.".colorize(:light_cyan) + " #{journal['title']}" + " " * 20 + "#{journal['date']}".colorize(:blue))
     }
     puts
     puts("Type EXIT to return to main menu".colorize(:red))
-    print("Please enter the number of the journal entry you would like to view: ".colorize(:light_cyan))
+    print("Please enter the number of the journal entry you would like to view: ".colorize(:blue))
     while true
       input = gets.strip
 
@@ -370,7 +370,7 @@ class Journal
       puts("Please enter a valid number!".colorize(:red))
     end
   end
-
+ 
   def show_content_of_entry(user_selection, journal_entries_arr)
     journal = journal_entries_arr[user_selection - 1]
 
