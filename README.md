@@ -8,7 +8,9 @@ To create an app that allows to check the user mood.
 # MVP
 1: User login
 2: User Password 
-3: How is your mood
+3: Register for new user 
+4: Add journal entry for new users 
+5: How is your mood
 Choose: Good
         Sad ,
         anger,
@@ -16,7 +18,7 @@ Choose: Good
         fear, 
         joy, 
         relief.
-4: Exit.
+6: Exit.
 Thank you for using this app
 
 ## Extras 
@@ -42,11 +44,15 @@ Add a journal entry A journal entry is just to know about your mood and then ent
 The ways of enter your journal is from normal entry and other one is filter entries mood.
 The delete option is use for delete your entry from the journal entry
 
-## Functionality
+## Functionality:
 The title screen: Using the mood app Firstly it displays you about “Welcome to MOOD app:” and then Login, Register and Exit.
 Log in screen: The login screen allows multiple user to login and the mood is save in database. Each user name is unique and the user name saved in database/user and Password will save at database/password.
 Register Screen: Register is for new user. User have to enter their user name and password for two times. 
 Main menu: Main menu displays multiple option for user. 
 Journal entry: A journal entry is like user have to enter something about their mood and then filters there mood anytime.
 Add and Delete:  A user can add their mood and delete their mood at any time.
+The user can exit when ever user want to exit by typing EXIT.
+
+
+
 
